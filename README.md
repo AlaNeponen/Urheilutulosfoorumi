@@ -1,4 +1,4 @@
-Urheilutulosfoorumi
+Urheilutulosfoorumi:
 Ideana on laatia järjestelmä, jossa säilytetään otteluiden tuloksia, ja jossa käyttäjät voivat
 kommentoida ottelua (ikään kuin keskustelufoorumin lankaa). Käyttäjät voivat lisätä ottelutuloksia
 antamalla ajan, paikan (tapahtuman nimen, liigan nimen yms.) kilpailevien joukkueiden nimet, sekä
