@@ -2,11 +2,11 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('matches_create') }}">
-  <input type="text" name="winner"/>
-  <input type="text" name="opponent"/>
-  <input type="text" name="date_when"/>
-  <input type="text" name="score"/>
-  <input type="text" name="event"/>
-  <input type="submit" value="Add a new match"/>
+  <label for="eka">Winner(team name):</label><input type="text" id="eka" name="winner"/>
+  <label for="toka">Their opponent:</label><input type="text" id="toka" name="opponent"/>
+  <label for="kolmas">Date (ex. "03 15 2017"):</label><input type="text" id="kolmas" name="date_when"/>
+  <label for="neljas">Final score:</label><input type="text" id="neljas" name="score"/>
+  <label for="viides">Name of the event, league etc:</label><input type="text" name="event"/>
+  <input type="submit" value="Add match"/>
 </form>
 {% endblock %}
