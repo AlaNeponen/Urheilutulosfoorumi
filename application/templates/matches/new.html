@@ -2,11 +2,87 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('matches_create') }}">
-  <label for="eka">Winner(team name):</label><input type="text" id="eka" name="winner"/>
-  <label for="toka">Their opponent:</label><input type="text" id="toka" name="opponent"/>
-  <label for="kolmas">Date (ex. "03 15 2017"):</label><input type="text" id="kolmas" name="date_when"/>
-  <label for="neljas">Final score:</label><input type="text" id="neljas" name="score"/>
-  <label for="viides">Name of the event, league etc:</label><input type="text" name="event"/>
-  <input type="submit" value="Add match"/>
+  <table>
+    <tr>
+      <td>
+        {{ form.winner.label }}
+      </td>
+      <td>
+        {{ form.winner }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.winner.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.opponent.label }}
+      </td>
+      <td>
+        {{ form.opponent }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.opponent.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.date_when.label }}
+      </td>
+      <td>
+        {{ form.date_when }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.date_when.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.score.label }}
+      </td>
+      <td>
+        {{ form.score }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.score.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.event.label }}
+      </td>
+      <td>
+        {{ form.event }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.event.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <input type="submit" value="Add match"/>
+      </td> 
+    </tr>
+  </table>
 </form>
 {% endblock %}

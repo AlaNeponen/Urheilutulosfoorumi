@@ -5,10 +5,32 @@
     <title>Urheilutulosfoorumi</title>
   </head>
 
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  {% endwith %}
+
   <body>
+    {% if current_user.is_authenticated %}
+    <p>
+      Logged in as: {{ current_user.username }}. <a href="{{ url_for('auth_logout') }}">Logout</a>
+    </p>
+    {% else %}
+    <a href="{{ url_for('auth_login') }}">Login</a>
+    {% endif %}
+    
     <ul>
-      <li><a href="{{ url_for('matches_index') }}">List of matches</a></li>
+      <li><a href="{{ url_for('matches_index') }}">A list of matches</a></li>
       <li><a href="{{ url_for('matches_form') }}">Add a match</a></li>
+    </ul>
+
+    <ul>
+      <li><a href="{{ url_for('auth_create') }}">Create a new account</a></li>
     </ul>
     
     {% block body %}
