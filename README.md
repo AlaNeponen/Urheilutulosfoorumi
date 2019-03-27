@@ -18,5 +18,3 @@ ylläpitäjällä on kyky poistaa valheellisia tuloksia, sekä epäasiallisia ko
 * [Linkki sovellukseen](https://urheilutulosfoorumi.herokuapp.com/ "urheilutulosfoorumi")
 * [User Story:t](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/UserStories.md)
 * [Linkki tietokantakaavion hahmotelmaan](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/Tietokantakaavio.jpg)
-
-*(huom. nykyisessä versiossa luotu vasta taulu "Match". Hahmotelma todennäköisesti eroaa myös lopulliesta tietokannasta)*
