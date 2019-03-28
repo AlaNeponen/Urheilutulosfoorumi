@@ -79,7 +79,7 @@ def auth_create():
 
     db.session().add(u)
     db.session().commit()
-
+    flash("Account created! You can log in from below :3")
     return redirect(url_for("auth_login"))
 
 @app.route("/auth/delete_user")

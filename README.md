@@ -18,3 +18,9 @@ ylläpitäjällä on kyky poistaa valheellisia tuloksia, sekä epäasiallisia ko
 * [Linkki sovellukseen](https://urheilutulosfoorumi.herokuapp.com/ "urheilutulosfoorumi")
 * [User Story:t](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/UserStories.md)
 * [Linkki tietokantakaavion hahmotelmaan](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/Tietokantakaavio.jpg)
+
+#### Testitunnukset sovelluksen kokeilemiseen ####
+*(Feel free to create your own account though :^))*
+
+* Username: test_user
+* Password: tester_01
