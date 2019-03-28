@@ -1,6 +1,6 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import login_required, current_user
 from application.matches.models import Match
 from application.matches.forms import MatchForm
 import datetime
@@ -25,6 +25,7 @@ def matches_create():
     date_str = (form.date_when.data)
     date_time = datetime.datetime.strptime(date_str, '%d %m %Y')
     m = Match(form.winner.data, form.opponent.data, date_time, form.score.data, form.event.data)
+    m.account_id = current_user.id
 
     db.session().add(m)
     db.session().commit()
