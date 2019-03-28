@@ -89,6 +89,9 @@ def auth_deleteUser():
 @app.route("/auth/delete", methods=["POST"])
 def auth_delete():
     u = User.query.get(current_user.id)
+    matches = Match.query.filter_by(account_id=current_user.id)
+    for match in matches:
+        db.session.delete(match)
     logout_user()
     db.session.delete(u)
     db.session.commit()
