@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('auth_username') }}">
+    <table>
+        <tr>
+            <td>
+                {{ form.username.label }}
+            </td>
+            <td>
+                {{ form.username }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Update username"/>
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

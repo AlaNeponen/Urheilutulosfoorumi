@@ -8,7 +8,7 @@ class Match(db.Model):
     score = db.Column(db.String(50), nullable=False)
     event = db.Column(db.String(144), nullable=False)
 
-    account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'))
 
     def __init__(self, winner, opponent, date_when, score, event):
         self.winner = winner

@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash
-from flask_login import login_user, logout_user
-
+from flask_login import login_user, logout_user, login_required, current_user
+from application.matches.models import Match
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
@@ -11,7 +11,6 @@ def auth_login():
         return render_template("auth/loginform.html", form = LoginForm())
 
     form = LoginForm(request.form)
-    # mahdolliset validoinnit
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
@@ -27,9 +26,42 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
-@app.route("/auth/new")
-def auth_form():
-    return render_template("auth/new.html", form = LoginForm())
+@app.route("/auth/my_account")
+@login_required
+def auth_own():
+    return render_template("auth/my.html", matches = Match.query.filter_by(account_id=current_user.id))
+
+@app.route("/auth/update_username")
+def auth_updateName():
+    return render_template("auth/username.html", form = LoginForm())
+
+@app.route("/auth/update_password")
+def auth_updatePassword():
+    return render_template("auth/password.html", form = LoginForm())
+
+@app.route("/auth/password", methods=["POST"])
+def auth_password():
+    form = LoginForm(request.form)
+    u = User.query.get(current_user.id)
+    u.password = form.password.data
+    db.session.commit()
+    flash("Password successfully updated!")
+    return render_template("auth/my.html", matches = Match.query.filter_by(account_id=current_user.id))
+
+@app.route("/auth/username", methods=["POST"])
+def auth_username():
+    form = LoginForm(request.form)
+    users = User.query.all()
+    for user in users:
+        if user.username == form.username.data:
+            flash("Username is already taken :'(")
+            return render_template("auth/username.html", form = form)
+    u = User.query.get(current_user.id)
+    u.username = form.username.data
+    db.session.commit()
+    flash("Username successfully updated!")
+    return render_template("auth/my.html", matches = Match.query.filter_by(account_id=current_user.id))
+
 
 @app.route("/auth", methods=["GET" ,"POST"])
 def auth_create():
@@ -49,3 +81,16 @@ def auth_create():
     db.session().commit()
 
     return redirect(url_for("auth_login"))
+
+@app.route("/auth/delete_user")
+def auth_deleteUser():
+    return render_template("auth/delete.html")
+
+@app.route("/auth/delete", methods=["POST"])
+def auth_delete():
+    u = User.query.get(current_user.id)
+    logout_user()
+    db.session.delete(u)
+    db.session.commit()
+    flash("User deleted :'(")
+    return render_template("index.html")

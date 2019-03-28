@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table>
+  <tr>
+      <td>
+          <p>Warning: Deleting your user means it will be gone forever</p>
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('auth_delete') }}">
+            <input type="submit" value="Delete user"/>
+        </form>
+      </td>
+  </tr>  
+</table>
+{% endblock %}
