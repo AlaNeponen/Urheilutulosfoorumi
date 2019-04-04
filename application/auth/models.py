@@ -33,11 +33,11 @@ class User(db.Model):
 
     @staticmethod
     def most_active_users():
-        stmt = text("SELECT Account.username, COUNT(Comment.id) AS number FROM Account"
+        stmt = text("SELECT Account.username, COUNT(Comment.id) FROM Account"
                     " LEFT JOIN Comment ON Comment.account_id = Account.id"
                     " GROUP BY Account.id"
-                    " HAVING number > 0"
-                    " ORDER BY number DESC"
+                    " HAVING (SELECT COUNT(Comment.id) FROM Account) > 0"
+                    " ORDER BY (SELECT COUNT(Comment.id) FROM Account) DESC"
                     " LIMIT 3")
         res = db.engine.execute(stmt)
 
