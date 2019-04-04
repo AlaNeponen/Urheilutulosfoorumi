@@ -16,6 +16,9 @@
       <td>{{ match.date_when }}</td>
       <td>{{ match.score }}</td>
       <td>{{ match.event }}</td>
+      <td>
+        <li><a href="{{ url_for('comments_form', match_id=match.id) }}">See comments</a></li>
+      </td>
     </tr>
     {% endfor %}
   </table>

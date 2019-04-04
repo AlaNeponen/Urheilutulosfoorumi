@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required, current_user
 from application.matches.models import Match
+from application.comments.models import Comment
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
@@ -92,6 +93,9 @@ def auth_delete():
     matches = Match.query.filter_by(account_id=current_user.id)
     for match in matches:
         db.session.delete(match)
+    comments = Comment.query.filter_by(account_id=current_user.id)
+    for comment in comments:
+        db.session.delete(comment)
     logout_user()
     db.session.delete(u)
     db.session.commit()
