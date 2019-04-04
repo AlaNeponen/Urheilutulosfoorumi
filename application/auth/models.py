@@ -1,4 +1,5 @@
 from application import db
+from sqlalchemy.sql import text
 
 class User(db.Model):
 
@@ -29,6 +30,22 @@ class User(db.Model):
 
     def is_authenticated(self):
         return True
+
+    @staticmethod
+    def most_active_users():
+        stmt = text("SELECT Account.username, COUNT(Comment.id) AS number FROM Account"
+                    " LEFT JOIN Comment ON Comment.account_id = Account.id"
+                    " GROUP BY Account.id"
+                    " HAVING number > 0"
+                    " ORDER BY number DESC"
+                    " LIMIT 3")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"name":row[0], "comments":row[1]})
+
+        return response
 
 
 
