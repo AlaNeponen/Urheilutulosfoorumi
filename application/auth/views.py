@@ -92,6 +92,9 @@ def auth_delete():
     u = User.query.get(current_user.id)
     matches = Match.query.filter_by(account_id=current_user.id)
     for match in matches:
+        match_comments = Comment.query.filter_by(matchid=match.id)
+        for comment in match_comments:
+            db.session.delete(comment)
         db.session.delete(match)
     comments = Comment.query.filter_by(account_id=current_user.id)
     for comment in comments:
