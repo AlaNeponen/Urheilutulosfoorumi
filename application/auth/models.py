@@ -36,7 +36,6 @@ class User(db.Model):
         stmt = text("SELECT Account.username, COUNT(Comment.id) AS numberOfComments FROM Account"
                     " LEFT JOIN Comment ON Comment.account_id = Account.id"
                     " GROUP BY Account.username"
-                    " HAVING numberOfComments > 0"
                     " ORDER BY numberOfComments DESC"
                     " LIMIT 3")
         res = db.engine.execute(stmt)
