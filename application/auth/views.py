@@ -100,4 +100,4 @@ def auth_delete():
     db.session.delete(u)
     db.session.commit()
     flash("User deleted :'(")
-    return render_template("index.html")
+    return redirect(url_for("index"))

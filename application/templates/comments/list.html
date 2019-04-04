@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+  <table cellspacing="10" cellpadding="10">
     <tr>
       <th>Winner</th>
       <th>Opponent</th>
@@ -45,7 +45,7 @@
     </tr>
     {% endfor %}
   </table>
-  <table>
+  <table cellspacing="10" cellpadding="10">
     {% for comment in comments %}
     <tr>
       <td><b>{{ comment.name }}</b></td>
