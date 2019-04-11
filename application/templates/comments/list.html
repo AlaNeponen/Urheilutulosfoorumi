@@ -17,14 +17,14 @@
       <td>{{ match.score }}</td>
       <td>{{ match.event }}</td>
       <td>
-          <form method="POST" action="{{ url_for('comments_create', matchID=match.id) }}">
-              <table>
-                <tr>
-                  <td>
-                    {{ form.content.label }}
-                  </td>
-                  <td>
-                    {{ form.content }}
+        <form method="POST" action="{{ url_for('comments_create', matchID=match.id) }}">
+            <table>
+              <tr>
+                <td>
+                {{ form.content.label }}
+                </td>
+                <td>
+                {{ form.content }}
                   </td>
                   <td>
                     <ul>
@@ -40,7 +40,7 @@
                   </td>
                 </tr>
               </table>
-            </form>
+        </form>
       </td>
     </tr>
     {% endfor %}
@@ -50,6 +50,13 @@
     <tr>
       <td><b>{{ comment.name }}</b></td>
       <td>{{ comment.content }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('comments_delete', ID=comment.id, matchId=comment.matchid) }}">
+          {% if current_user.roles() == "ADMIN" %}
+          <input type="submit" value="Delete comment"/>
+        </form>
+      </td>
+      {% endif %}
     </tr>
     {% endfor %}
   </table>

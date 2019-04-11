@@ -1,8 +1,8 @@
 from flask import render_template, request, redirect, url_for, flash
-from flask_login import login_user, logout_user, login_required, current_user
+from flask_login import login_user, logout_user, current_user
 from application.matches.models import Match
 from application.comments.models import Comment
-from application import app, db
+from application import app, db, login_required
 from application.auth.models import User
 from application.auth.forms import LoginForm
 
@@ -28,7 +28,7 @@ def auth_logout():
     return redirect(url_for("index"))
 
 @app.route("/auth/my_account")
-@login_required
+@login_required(role="ANY")
 def auth_own():
     return render_template("auth/my.html", matches = Match.query.filter_by(account_id=current_user.id))
 
@@ -71,7 +71,7 @@ def auth_create():
     if not form.validate():
         return render_template("auth/new.html", form = form)
 
-    u = User(form.username.data, form.password.data)
+    u = User(form.username.data, form.password.data, "PLEB")
     users = User.query.all()
     for user in users:
         if user.username == form.username.data:

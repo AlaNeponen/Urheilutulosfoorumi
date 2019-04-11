@@ -1,6 +1,6 @@
-from application import app, db
+from application import app, db, login_required
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required, current_user
+from flask_login import current_user
 from application.matches.models import Match
 from application.matches.forms import MatchForm
 import datetime
@@ -10,12 +10,12 @@ def matches_index():
     return render_template("matches/list.html", matches = Match.query.all())
 
 @app.route("/matches/new/")
-@login_required
+@login_required(role="ANY")
 def matches_form():
     return render_template("matches/new.html", form = MatchForm())
 
 @app.route("/matches/", methods=["POST"])
-@login_required
+@login_required(role="ANY")
 def matches_create():
     form = MatchForm(request.form)
 
