@@ -7,6 +7,7 @@ from flask_login import current_user
 from application.matches.models import Match
 
 @app.route("/comments/<match_id>/")
+@login_required(role="ANY")
 def comments_form(match_id):
     return render_template("comments/list.html", form = CommentForm(), matches = Match.query.filter_by(id=match_id), comments = Comment.query.filter_by(matchid=match_id))
 
