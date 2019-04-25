@@ -35,7 +35,7 @@ antamalla ajan, paikan (tapahtuman nimen, liigan nimen yms.) kilpailevien joukku
 * Avaa terminaaliin tulostunut osoite selaimessa
 * Voit myös tarkastella paikallista tietokantaa sqlite3:n avulla navigoimalla kansion *application* sisälle, ja suorittamalla siellä komennon `sqlite3 matches.db`
 
-* **Huom!** Uuden käyttäjän luominen asettaa käyttäjälle vakiona roolin **USER**. Helpoin tapa luoda **ADMIN** roolilla varustettu käyttäjä on asettaa kyseisen käyttäjän tiedot suoraan tietokantaan. Tämä onnistuu paikallisesti avaamalla tietokanta tarkasteluun ylläolevan komennon avulla, ja syöttämällä halutut tiedot suoraan tietokantaan komennolla `INSERT INTO account (username, password, role) VALUES ('haluamasi käyttäjänimi', 'haluamasi salasana', 'ADMIN');`
+* **Huom!** Uuden käyttäjän luominen asettaa käyttäjälle vakiona roolin **PLEB**. Helpoin tapa luoda **ADMIN** roolilla varustettu käyttäjä on asettaa kyseisen käyttäjän tiedot suoraan tietokantaan. Tämä onnistuu paikallisesti avaamalla tietokanta tarkasteluun ylläolevan komennon avulla, ja syöttämällä halutut tiedot suoraan tietokantaan komennolla `INSERT INTO account (username, password, role) VALUES ('haluamasi käyttäjänimi', 'haluamasi salasana', 'ADMIN');`
 
 ### Linkkejä: ###
 * [Linkki sovellukseen](https://urheilutulosfoorumi.herokuapp.com/ "urheilutulosfoorumi")
