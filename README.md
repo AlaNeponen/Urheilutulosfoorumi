@@ -8,6 +8,7 @@ antamalla ajan, paikan (tapahtuman nimen, liigan nimen yms.) kilpailevien joukku
 * Kommentin lisääminen
 * Ottelun lisääminen
 * Kommentin poistaminen (*admin*)
+* Ottelun poistaminen (*admin*)
 
 ### Käyttöohje ###
 * Luo uusi käyttäjä kohdasta **create a new account** (aseta itsellesi käyttäjänimi ja salasana)
@@ -41,6 +42,7 @@ antamalla ajan, paikan (tapahtuman nimen, liigan nimen yms.) kilpailevien joukku
 * [Linkki sovellukseen](https://urheilutulosfoorumi.herokuapp.com/ "urheilutulosfoorumi")
 * [User Story:t](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/UserStories.md)
 * [Linkki tietokantakaavion hahmotelmaan](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/Tietokantakaavio.jpg)
+* [CREATE TABLE -lauseet](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/create.md)
 
 #### Testitunnukset sovelluksen kokeilemiseen ####
 *(Feel free to create your own account though :^))*
