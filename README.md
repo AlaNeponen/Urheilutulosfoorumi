@@ -1,9 +1,7 @@
 # Urheilutulosfoorumi: #
 Ideana on laatia järjestelmä, jossa säilytetään otteluiden tuloksia, ja jossa käyttäjät voivat
 kommentoida ottelua *(ikään kuin keskustelufoorumin lankaa)*. Käyttäjät voivat lisätä ottelutuloksia
-antamalla ajan, paikan (tapahtuman nimen, liigan nimen yms.) kilpailevien joukkueiden nimet, sekä
-voittajan ja tuloksen. Oletuksena käyttäjälle näytetään esim. 5 uusinta tulosta. Järjestelmän
-ylläpitäjällä on kyky poistaa valheellisia tuloksia, sekä epäasiallisia kommentteja **:^)**.
+antamalla ajan, paikan (tapahtuman nimen, liigan nimen yms.) kilpailevien joukkueiden nimet, sekä tuloksen. Järjestelmän ylläpitäjällä on kyky poistaa valheellisia tuloksia, sekä epäasiallisia kommentteja **:^)**.
 
 ## Toimintoja: ##
 * Kirjautuminen ja käyttäjän hallinta
