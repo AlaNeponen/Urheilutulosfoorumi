@@ -3,6 +3,7 @@ from flask import redirect, render_template, request, url_for
 from flask_login import current_user
 from application.matches.models import Match
 from application.matches.forms import MatchForm
+from application.comments.models import Comment
 import datetime
 
 @app.route("/matches", methods=["GET"])
@@ -29,5 +30,18 @@ def matches_create():
 
     db.session().add(m)
     db.session().commit()
+
+    return redirect(url_for("matches_index"))
+
+@app.route("/matches/<match_ID>/", methods=["POST"])
+@login_required(role="ANY")
+def matches_delete(match_ID):
+    matches = Match.query.filter_by(id=match_ID)
+    for match in matches:
+        match_comments = Comment.query.filter_by(matchid=match.id)
+        for comment in match_comments:
+            db.session.delete(comment)
+        db.session.delete(match)
+    db.session.commit()
 
     return redirect(url_for("matches_index"))
