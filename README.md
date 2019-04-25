@@ -41,7 +41,7 @@ antamalla ajan, paikan (tapahtuman nimen, liigan nimen yms.) kilpailevien joukku
 ### Linkkejä: ###
 * [Linkki sovellukseen](https://urheilutulosfoorumi.herokuapp.com/ "urheilutulosfoorumi")
 * [User Story:t](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/UserStories.md)
-* [Linkki tietokantakaavion hahmotelmaan](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/Tietokantakaavio.jpg)
+* [Linkki tietokantakaavion hahmotelmaan](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/Db-kaavio.jpg)
 * [CREATE TABLE -lauseet](https://github.com/AlaNeponen/Urheilutulosfoorumi/blob/master/documentation/create.md)
 
 #### Testitunnukset sovelluksen kokeilemiseen ####
