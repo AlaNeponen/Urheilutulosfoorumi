@@ -88,7 +88,7 @@ def auth_create():
     return redirect(url_for("index"))
 
 @app.route("/auth/delete_user")
-def auth_deleteUser():
+def auth_deleteRedirect():
     return render_template("auth/delete.html")
 
 @app.route("/auth/<user_id>", methods=["POST"])
