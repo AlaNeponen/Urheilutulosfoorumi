@@ -32,7 +32,7 @@ antamalla ajan, paikan (tapahtuman nimen, liigan nimen yms.) kilpailevien joukku
 
 ### Asennusohje (for Linux) ###
 *Tarvitset koneellesi ainakin python3:n, git:in sekä sqlite3:n*
-* Aloita kloonamalla repo koneellesi *(is safe I promise :-D)*
+* Aloita kloonamalla repo koneellesi
 * Navigoi lataamasi kansion sisälle
 * Luo virtual environment komennolla `python3 -m venv venv`
 * Aktivoi kyseinen environment komennolla `source venv/bin/activate`
