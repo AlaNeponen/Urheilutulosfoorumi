@@ -59,6 +59,9 @@ def auth_username():
             return render_template("auth/username.html", form = form)
     u = User.query.get(current_user.id)
     u.username = form.username.data
+    comments = Comment.query.filter_by(account_id=current_user.id)
+    for comment in comments:
+        comment.name = u.username
     db.session.commit()
     flash("Username successfully updated!")
     return render_template("auth/my.html", matches = Match.query.filter_by(account_id=current_user.id))
