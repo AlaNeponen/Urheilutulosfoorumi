@@ -88,20 +88,25 @@ def auth_create():
 def auth_deleteUser():
     return render_template("auth/delete.html")
 
-@app.route("/auth/delete", methods=["POST"])
-def auth_delete():
-    u = User.query.get(current_user.id)
-    matches = Match.query.filter_by(account_id=current_user.id)
+@app.route("/auth/<user_id>", methods=["POST"])
+def auth_delete(user_id):
+    u = User.query.get(user_id)
+    matches = Match.query.filter_by(account_id=user_id)
     for match in matches:
         match_comments = Comment.query.filter_by(matchid=match.id)
         for comment in match_comments:
             db.session.delete(comment)
         db.session.delete(match)
-    comments = Comment.query.filter_by(account_id=current_user.id)
+    comments = Comment.query.filter_by(account_id=user_id)
     for comment in comments:
         db.session.delete(comment)
-    logout_user()
+    if current_user.roles == "PLEB":
+        logout_user()
     db.session.delete(u)
     db.session.commit()
     flash("User deleted :'(")
     return redirect(url_for("index"))
+
+@app.route("/auth/userlist")
+def auth_users():
+    return render_template("auth/userlist.html", users = User.query.all())

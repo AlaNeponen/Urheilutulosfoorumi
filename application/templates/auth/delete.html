@@ -7,7 +7,7 @@
           <p>Warning: Deleting your user ALSO deletes all of the matches you have submitted :'(</p>
       </td>
       <td>
-        <form method="POST" action="{{ url_for('auth_delete') }}">
+        <form method="POST" action="{{ url_for('auth_delete', user_id=current_user.id) }}">
             <input type="submit" value="Delete user"/>
         </form>
       </td>
