@@ -4,7 +4,6 @@ from flask_login import current_user
 from application.matches.models import Match
 from application.matches.forms import MatchForm
 from application.comments.models import Comment
-import datetime
 
 @app.route("/matches", methods=["GET"])
 def matches_index():
@@ -23,9 +22,7 @@ def matches_create():
     if not form.validate():
         return render_template("matches/new.html", form = form)
 
-    date_str = (form.date_when.data)
-    date_time = datetime.datetime.strptime(date_str, '%d %m %Y')
-    m = Match(form.winner.data, form.opponent.data, date_time, form.score.data, form.event.data)
+    m = Match(form.winner.data, form.opponent.data, form.date_when.data, form.score.data, form.event.data)
     m.account_id = current_user.id
 
     db.session().add(m)
